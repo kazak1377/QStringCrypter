@@ -2,7 +2,7 @@ QStringCrypter
 ==============
 
 This is simple header, wich allows you to use XOR ecryption to any QString.
-
+And you don't need to create an object of Crypter class. Just use it;)
 ####Usage:
 
 1. Add this header to your project
