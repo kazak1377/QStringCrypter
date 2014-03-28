@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QDebug>
 
-static const QString kEncryptorString = QString("23478yisdkjk#adlkm,[p894123asd9ujzc2qwe29opzoa;llds0ad"); //here is key to crypt/decrypt QString;
+static const QString kEncryptorString = QString("encryption key"); //here is key to crypt/decrypt QString;
 
 class Crypter : public QObject
 {
@@ -31,9 +31,11 @@ public:
 private:
     Crypter(QObject *parent = 0);
     static int keyIndex(int index)
-    {
-        if ( index >= kEncryptorString.length() ) {
-            return index - kEncryptorString.length();
+    { 
+        int len = kEncryptorString.length();
+        int multiple = index / len;
+        if ( index >=  len ) {
+            return index - (len * multiple);
         }
         return index;
     }
